@@ -1,0 +1,7 @@
+assemble:
+  - from: build/css
+    into: static
+global-css-cx:
+  name: Global CSS CX
+  type: globalCSS
+  url: custom.css

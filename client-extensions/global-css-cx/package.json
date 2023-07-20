@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "node-sass": "^9.0.0",
+    "sassy-inputs": "1.0.6"
+  },
+  "scripts": {
+    "build": "gulp compile"
+  },
+  "main": "package.json",
+  "name": "@liferay/global-css-cx",
+  "version": "0.0.0",
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-sass": "^5.1.0"
+  }
+}

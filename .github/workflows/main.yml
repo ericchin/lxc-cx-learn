@@ -12,6 +12,10 @@ jobs:
       LXC_PROJECT: ${{ vars.LXC_PROJECT }}
     steps:
     - uses: actions/checkout@v1
+    - uses: actions/setup-java@v3
+      with:
+        distribution: 'corretto'
+        java-version: '11'
     - name: Install LCP CLI
       run: |
         curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash

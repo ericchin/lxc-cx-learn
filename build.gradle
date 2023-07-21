@@ -5,7 +5,7 @@ def lxcProject = System.getenv('LXC_PROJECT')
 subprojects {
 	task lxcDeploy {
 		group "LXC"
-		dependsOn "assemble"
+		dependsOn getTasksByName('build', true)
 		doLast {
 			def buildFileName = "$project.projectDir" + "/dist/" + "$project.name" + ".zip"
 

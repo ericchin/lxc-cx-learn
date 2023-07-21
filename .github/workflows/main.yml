@@ -24,4 +24,4 @@ jobs:
         echo "${{ secrets.LCP_USERNAME}} ${{ secrets.LCP_PASSWORD }}" | lcp login
     - name: Deploy CX to LXC
       run: |
-        ./gradlew clean lxcDeploy
+        ./gradlew clean lxcDeploy --info

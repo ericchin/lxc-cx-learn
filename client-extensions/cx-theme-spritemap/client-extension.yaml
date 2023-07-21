@@ -1,0 +1,7 @@
+assemble:
+    - from: assets
+      into: static
+cx-theme-spritemap:
+    name: CX Theme Spritemap
+    type: themeSpritemap
+    url: spritemap.svg

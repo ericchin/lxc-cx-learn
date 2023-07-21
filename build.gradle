@@ -1,1 +1,18 @@
 // Check GETTING_STARTED.markdown for information regarding usage.
+
+def lxcProject = System.getenv('LXC_PROJECT')
+
+subprojects {
+	task lxcDeploy {
+		group "LXC"
+		dependsOn "assemble"
+		doLast {
+			def buildFileName = "$project.projectDir" + "/dist/" + "$project.name" + ".zip"
+
+			exec {
+				commandLine 'lcp', 'deploy', '--extension', buildFileName
+				standardInput = new ByteArrayInputStream(lxcProject.getBytes())
+			}
+		}
+	}
+}

@@ -16,6 +16,7 @@ jobs:
       with:
         distribution: 'zulu'
         java-version: '11'
+        cache: 'gradle'
     - name: Install LCP CLI
       run: |
         curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash

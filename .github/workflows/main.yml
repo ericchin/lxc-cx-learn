@@ -7,11 +7,17 @@ jobs:
   lxcDeploy:
     name: Deploy to LXC UAT
     runs-on: ubuntu-latest
+    environment: uat
+    env:
+      LXC_PROJECT: ${{ vars.LXC_PROJECT }}
     steps:
     - uses: actions/checkout@v1
     - name: Install LCP CLI
       run: |
         curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash
+    - name: LCP Login
+      run: |
+        echo "${{ secrets.LCP_USERNAME}} ${{ secrets.LCP_PASSWORD }}" | lcp login
     - name: Deploy CX to LXC
       run: |
-        lcp login
+        ./gradlew clean lxcDeploy

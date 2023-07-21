@@ -3,6 +3,7 @@
     "workspaces": {
         "packages": [
             "client-extensions/cx-global-css",
+            "client-extensions/cx-custom-element",
             "client-extensions/cx-theme-css"
         ]
     }

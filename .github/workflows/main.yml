@@ -14,9 +14,10 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v3
       with:
-        distribution: 'zulu'
-        java-version: '11'
+        distribution: 'corretto'
+        java-version: '8'
         cache: 'gradle'
+    - run: javac -version
     - name: Install LCP CLI
       run: |
         curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash
@@ -25,4 +26,4 @@ jobs:
         echo "${{ secrets.LCP_USERNAME}} ${{ secrets.LCP_PASSWORD }}" | lcp login
     - name: Deploy CX to LXC
       run: |
-        ./gradlew clean lxcDeploy --debug
+        ./gradlew clean lxcDeploy --no-daemon

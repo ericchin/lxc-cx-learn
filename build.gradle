@@ -9,9 +9,13 @@ subprojects {
 		doLast {
 			def buildFileName = "$project.projectDir" + "/dist/" + "$project.name" + ".zip"
 
-			exec {
-				commandLine 'lcp', 'deploy', '--extension', buildFileName
-				standardInput = new ByteArrayInputStream(lxcProject.getBytes())
+			File artifact = new File(buildFileName)
+
+			if (artifact.exists()) {
+				exec {
+					commandLine 'lcp', 'deploy', '--extension', buildFileName
+					standardInput = new ByteArrayInputStream(lxcProject.getBytes())
+				}
 			}
 		}
 	}

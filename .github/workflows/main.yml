@@ -1,0 +1,16 @@
+on:
+  push:
+    branches:
+      - master
+jobs: 
+  lxcDeploy:
+    name: Deploy to LXC UAT
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install LCP CLI
+      run: |
+        curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash
+    - name: Deploy CX to LXC
+      run: |
+        lcp login

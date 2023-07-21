@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-      - master
+      - uat
+      - prod
 jobs: 
   lxcDeploy:
     name: Deploy to LXC UAT

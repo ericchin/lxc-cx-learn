@@ -1,0 +1,47 @@
+{
+  "actions": {
+    "createBatch": {
+      "href": "/o/headless-batch-engine/v1.0/import-task/com.liferay.object.rest.dto.v1_0.ObjectEntry",
+      "method": "POST"
+    },
+    "deleteBatch": {
+      "href": "/o/headless-batch-engine/v1.0/import-task/com.liferay.object.rest.dto.v1_0.ObjectEntry",
+      "method": "DELETE"
+    },
+    "updateBatch": {
+      "href": "/o/headless-batch-engine/v1.0/import-task/com.liferay.object.rest.dto.v1_0.ObjectEntry",
+      "method": "PUT"
+    }
+  },
+  "configuration": {
+    "callbackURL": null,
+    "className": "com.liferay.object.rest.dto.v1_0.ObjectEntry",
+    "companyId": 20096,
+    "multiCompany": false,
+    "parameters": {
+      "containsHeaders": "false",
+      "createStrategy": "INSERT",
+      "importStrategy": "ON_ERROR_FAIL",
+      "taskItemDelegateName": "C_CustomObject",
+      "updateStrategy": "UPDATE"
+    },
+    "userId": 20123,
+    "version": "v1.0"
+  },
+  "items": [
+    {
+      "dateCreated": "2023-07-26T17:36:41Z",
+      "dateModified": "2023-07-26T17:36:41Z",
+      "externalReferenceCode": "79b556d8-45a2-07cb-4817-d355710f26a6",
+      "keywords": [],
+      "name": "Hello"
+    },
+    {
+      "dateCreated": "2023-07-26T17:36:48Z",
+      "dateModified": "2023-07-26T17:36:48Z",
+      "externalReferenceCode": "7e3acdd7-4dfc-9f80-7420-016989f8da49",
+      "keywords": [],
+      "name": "Hello 1"
+    }
+  ]
+}

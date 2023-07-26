@@ -15,7 +15,7 @@ jobs:
     - uses: actions/setup-java@v3
       with:
         distribution: 'corretto'
-        java-version: '8'
+        java-version: '11'
         cache: 'gradle'
     - run: javac -version
     - name: Install LCP CLI
@@ -26,4 +26,4 @@ jobs:
         echo "${{ secrets.LCP_USERNAME}} ${{ secrets.LCP_PASSWORD }}" | lcp login
     - name: Deploy CX to LXC
       run: |
-        ./gradlew clean lxcDeploy --no-daemon
+        ./gradlew clean build --no-daemon --debug

@@ -12,18 +12,23 @@ jobs:
       LXC_PROJECT: ${{ vars.LXC_PROJECT }}
     steps:
     - uses: actions/checkout@v1
+    - name: Download Java 11.0.19
+      run: |
+        download_url="https://corretto.aws/downloads/resources/11.0.19.7.1/amazon-corretto-11.0.19.7.1-linux-x64.tar.gz"
+        wget -O $RUNNER_TEMP/java_package.tar.gz $download_url
     - uses: actions/setup-java@v3
       with:
-        distribution: 'corretto'
-        java-version: '11'
-        cache: 'gradle'
+        distribution: 'jdkfile'
+        jdkFile: ${{ runner.temp }}/java_package.tar.gz
+        java-version: '11.0.19'
+        architecture: x64
     - run: javac -version
     - name: Install LCP CLI
       run: |
         curl https://cdn.liferay.cloud/lcp/stable/latest/install.sh -fsSL | bash
     - name: LCP Login
       run: |
-        echo "${{ secrets.LCP_USERNAME}} ${{ secrets.LCP_PASSWORD }}" | lcp login
+        echo "${{ secrets.LCP_USERNAME }} ${{ secrets.LCP_PASSWORD }}" | lcp login
     - name: Deploy CX to LXC
       run: |
-        ./gradlew clean build --no-daemon --debug
+        ./gradlew clean lxcDeploy --no-daemon

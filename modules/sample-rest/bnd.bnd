@@ -1,0 +1,3 @@
+Bundle-Name: sample-rest
+Bundle-SymbolicName: com.ericchin.sample.rest
+Bundle-Version: 1.0.0

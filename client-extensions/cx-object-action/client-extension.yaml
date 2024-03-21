@@ -1,0 +1,12 @@
+liferay-sample-oauth-application-headless-server:
+    .serviceAddress: localhost:8080
+    .serviceScheme: http
+    name: Sample OAuth Application Headless Server
+    scopes:
+        - Sample.Rest.everything
+    type: oAuthApplicationHeadlessServer
+liferay-sample-object-action:
+    name: Sample Object Action
+    oAuth2ApplicationExternalReferenceCode: liferay-sample-oauth-application-headless-server
+    resourcePath: /o/sample/action
+    type: objectAction
